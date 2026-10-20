@@ -1010,68 +1010,6 @@
             text-align: center;
         }
 
-        .qr-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 23px 15px;
-            border: 1px solid var(--border);
-            border-radius: 19px;
-            background: var(--white);
-            text-align: center;
-        }
-
-        .qr-frame {
-            display: grid;
-            width: 174px;
-            aspect-ratio: 1;
-            align-items: center;
-            justify-items: center;
-            overflow: hidden;
-            padding: 9px;
-            border: 1px dashed #94a3b8;
-            border-radius: 12px;
-            background:
-                repeating-conic-gradient(#e7edf8 0% 25%, #ffffff 0% 50%)
-                50% / 16px 16px;
-        }
-
-        .qr-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: var(--white);
-        }
-
-        .qr-frame img[hidden] {
-            display: none;
-        }
-
-        .qr-placeholder-text {
-            display: none;
-            max-width: 140px;
-            color: var(--ink);
-            font-size: 0.83rem;
-            font-weight: 700;
-            line-height: 1.45;
-        }
-
-        .qr-frame.is-empty .qr-placeholder-text {
-            display: block;
-        }
-
-        .qr-card h3 {
-            margin: 16px 0 6px;
-            font-size: 1.05rem;
-        }
-
-        .qr-card p {
-            margin-bottom: 0;
-            color: var(--muted);
-            font-size: 0.88rem;
-            line-height: 1.55;
-        }
-
         /* AUTHOR */
 
         .author-grid {
@@ -1304,11 +1242,7 @@
             }
 
             .handout-preview-wrap {
-                grid-template-columns: minmax(0, 1fr) 190px;
-            }
-
-            .qr-card {
-                align-self: center;
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .footer-main {
@@ -1967,12 +1901,12 @@
                     </li>
                 </ul>
 
-                <a class="button button--blue" href="pamyatka.html" target="_blank" rel="noopener">
-                    Открыть памятку для печати ↗
+                <a class="button button--blue" href="#pricing">
+                    Памятка входит в курс
                 </a>
 
                 <p class="small-note" style="margin-top: 12px;">
-                    Откройте страницу и нажмите Ctrl+P, чтобы отправить памятку на печать.
+                    Памятку для печати вы получите вместе с доступом к урокам.
                 </p>
             </div>
 
@@ -2026,24 +1960,6 @@
                         <span>F2 — переименовать</span>
                         <span>Ctrl + Z — отменить</span>
                     </div>
-                </div>
-
-                <div class="qr-card">
-                    <div class="qr-frame" id="qr-frame">
-                        <img
-                            src="qr.png"
-                            id="qr-image"
-                            alt="QR-код для перехода к материалам курса"
-                            width="156"
-                            height="156"
-                            loading="lazy"
-                        >
-                        <span class="qr-placeholder-text" id="qr-fallback">
-                            Добавьте файл qr.png
-                        </span>
-                    </div>
-                    <h3>Материалы курса</h3>
-                    <p>Здесь будет QR-код для быстрого перехода к дополнительным материалам.</p>
                 </div>
             </div>
         </div>
@@ -2234,7 +2150,6 @@
                 <a href="#program">Программа обучения</a>
                 <a href="#pricing">Стоимость</a>
                 <a href="#faq">Частые вопросы</a>
-                <a href="pamyatka.html">Памятка для печати</a>
             </nav>
         </div>
 
@@ -2294,18 +2209,6 @@
 
         if (yearElement) {
             yearElement.textContent = String(new Date().getFullYear());
-        }
-
-        // Если qr.png пока отсутствует, показываем аккуратную заглушку.
-        // Когда файл появится рядом с index.html, изображение загрузится автоматически.
-        const qrImage = document.getElementById("qr-image");
-        const qrFrame = document.getElementById("qr-frame");
-
-        if (qrImage && qrFrame) {
-            qrImage.addEventListener("error", () => {
-                qrImage.hidden = true;
-                qrFrame.classList.add("is-empty");
-            }, { once: true });
         }
     })();
 </script>
