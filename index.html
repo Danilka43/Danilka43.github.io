@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Основы работы с ПК и Windows — научитесь пользоваться компьютером</title>
+    <meta name="description" content="Понятный онлайн-курс для начинающих пользователей компьютера. 12 уроков по работе с Windows, файлами, интернетом и цифровой безопасности.">
+    <meta name="theme-color" content="#1a56db">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Основы работы с ПК и Windows">
+    <meta property="og:description" content="Научитесь уверенно пользоваться компьютером: 12 понятных уроков без сложных терминов.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1A56DB/FFFFFF?text=Основы+работы+с+ПК+и+Windows">
+
+    <style>
+        :root {
+            --blue: #1a56db;
+            --blue-dark: #1746ae;
+            --blue-soft: #eef4ff;
+            --orange: #f97316;
+            --orange-dark: #c2410c;
+            --orange-soft: #fff2e8;
+            --ink: #1f2937;
+            --ink-soft: #4b5563;
+            --muted: #64748b;
+            --white: #ffffff;
+            --surface: #f8faff;
+            --border: #e2e8f0;
+            --green: #166534;
+            --green-soft: #f0fdf4;
+            --radius: 22px;
+            --shadow: 0 18px 48px rgba(26, 86, 219, 0.09);
+            --container: 1160px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--white);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: var(--blue);
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: var(--blue-dark);
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid var(--orange);
+            outline-offset: 5px;
+            border-radius: 5px;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(var(--container), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding-block: 84px;
+        }
+
+        .section--soft {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 14px;
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 22px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 9px;
+            content: "";
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+        }
+
+        h1 {
+            max-width: 720px;
+            margin-bottom: 22px;
+            font-size: clamp(2.25rem, 6vw, 4.35rem);
+            font-weight: 850;
+        }
+
+        h2 {
+            margin-bottom: 16px;
+            font-size: clamp(1.9rem, 4vw, 2.85rem);
+            font-weight: 800;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 750;
+        }
+
+        .section-heading > p:last-child {
+            margin-bottom: 0;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+        }
+
+        .text-highlight {
+            color: var(--blue);
+        }
+
+        .muted {
+            color: var(--ink-soft);
+        }
+
+        .small-note {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border: 2px solid transparent;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.3;
+            text-align: center;
+            text-decoration: none;
+            transition:
+                transform 180ms ease,
+                box-shadow 180ms ease,
+                background-color 180ms ease,
+                border-color 180ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button--primary {
+            background: var(--orange);
+            color: #111827;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2);
+        }
+
+        .button--primary:hover {
+            background: #fb8c36;
+            color: #111827;
+            box-shadow: 0 12px 26px rgba(249, 115, 22, 0.27);
+        }
+
+        .button--blue {
+            background: var(--blue);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(26, 86, 219, 0.15);
+        }
+
+        .button--blue:hover {
+            background: var(--blue-dark);
+            color: var(--white);
+        }
+
+        .button--outline {
+            border-color: var(--border);
+            background: var(--white);
+            color: var(--ink);
+        }
+
+        .button--outline:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .button--full {
+            width: 100%;
+        }
+
+        /* HEADER */
+
+        .site-header {
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+        }
+
+        .header-inner {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            flex-shrink: 0;
+            align-items: center;
+            gap: 11px;
+            color: var(--ink);
+            font-size: 0.95rem;
+            font-weight: 850;
+            line-height: 1.25;
+            text-decoration: none;
+        }
+
+        .brand:hover {
+            color: var(--ink);
+        }
+
+        .brand-icon {
+            display: grid;
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--blue);
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        .brand small {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px 20px;
+        }
+
+        .main-nav a {
+            color: var(--ink-soft);
+            font-size: 0.88rem;
+            font-weight: 650;
+            text-decoration: none;
+            transition: color 160ms ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--blue);
+        }
+
+        .main-nav .nav-cta {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .main-nav .nav-cta:hover {
+            background: var(--blue-dark);
+            color: var(--white);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding-block: 76px 88px;
+            background:
+                radial-gradient(ellipse at 88% 6%, rgba(219, 234, 254, 0.75), transparent 38%),
+                linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            align-items: center;
+            gap: 46px;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 22px;
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin-bottom: 28px;
+            color: var(--ink-soft);
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+            line-height: 1.65;
+        }
+
+        .hero-subtitle strong {
+            color: var(--ink);
+            font-weight: 750;
+        }
+
+        .hero-price {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px 14px;
+            margin-bottom: 26px;
+        }
+
+        .hero-price-current {
+            color: var(--orange-dark);
+            font-size: clamp(2.15rem, 5vw, 3.25rem);
+            font-weight: 900;
+            letter-spacing: -0.055em;
+            line-height: 1.1;
+        }
+
+        .hero-price-old {
+            color: var(--muted);
+            font-size: 1.15rem;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+        .hero-price-label {
+            display: block;
+            width: 100%;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            max-width: 490px;
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-note span:first-child {
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            max-width: 540px;
+            margin-inline: auto;
+        }
+
+        .hero-image-frame {
+            overflow: hidden;
+            padding: 10px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 28px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transform: rotate(1deg);
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            aspect-ratio: 5 / 4;
+            border-radius: 20px;
+            background: var(--blue-soft);
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            right: -4px;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 265px;
+            padding: 15px 17px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card-icon {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--green-soft);
+            font-size: 1.3rem;
+        }
+
+        .floating-card strong,
+        .floating-card small {
+            display: block;
+        }
+
+        .floating-card strong {
+            font-size: 0.94rem;
+        }
+
+        .floating-card small {
+            color: var(--muted);
+            font-size: 0.81rem;
+            line-height: 1.4;
+        }
+
+        .hero-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            margin: 32px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--ink-soft);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero-benefits li::before {
+            color: var(--green);
+            content: "✓";
+            font-weight: 900;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .about-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--white);
+            transition:
+                transform 180ms ease,
+                box-shadow 180ms ease,
+                border-color 180ms ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+            border-color: #c6d7ff;
+            box-shadow: var(--shadow);
+        }
+
+        .about-icon {
+            display: grid;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 22px;
+            place-items: center;
+            border-radius: 15px;
+            background: var(--blue-soft);
+            font-size: 1.55rem;
+        }
+
+        .about-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            margin-bottom: 0;
+            color: var(--ink-soft);
+            font-size: 1rem;
+        }
+
+        .about-bottom {
+            display: grid;
+            align-items: center;
+            gap: 24px;
+            margin-top: 26px;
+            padding: 30px;
+            border-radius: var(--radius);
+            background: var(--blue-soft);
+        }
+
+        .about-bottom h3 {
+            margin-bottom: 8px;
+        }
+
+        .about-bottom p {
+            margin-bottom: 0;
+            color: var(--ink-soft);
+        }
+
+        .about-bottom .about-icon {
+            margin: 0;
+            background: var(--white);
+        }
+
+        /* PROGRAM */
+
+        .program-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .lesson-card {
+            align-self: start;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: var(--white);
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease,
+                transform 180ms ease;
+        }
+
+        .lesson-card:hover {
+            border-color: #c5d6ff;
+            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.06);
+        }
+
+        .lesson-card[open] {
+            border-color: #a9c2ff;
+            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.07);
+        }
+
+        .lesson-card summary {
+            display: flex;
+            min-height: 85px;
+            align-items: center;
+            gap: 14px;
+            padding: 18px;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .lesson-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .lesson-number {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.94rem;
+            font-weight: 900;
+        }
+
+        .lesson-title {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: 750;
+            line-height: 1.4;
+        }
+
+        .lesson-chevron {
+            display: grid;
+            width: 31px;
+            height: 31px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 10px;
+            background: #f3f6fb;
+            color: var(--blue);
+            transition: transform 180ms ease;
+        }
+
+        .lesson-card[open] .lesson-chevron {
+            transform: rotate(180deg);
+        }
+
+        .lesson-content {
+            padding: 0 20px 22px 76px;
+            color: var(--ink-soft);
+            font-size: 0.96rem;
+        }
+
+        .lesson-content p {
+            margin-bottom: 10px;
+        }
+
+        .lesson-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lesson-result {
+            display: block;
+            padding-top: 7px;
+            color: var(--green);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .program-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 35px;
+            padding: 24px;
+            border-radius: 18px;
+            background: var(--blue-soft);
+            text-align: center;
+        }
+
+        .program-footer p {
+            margin-bottom: 0;
+        }
+
+        .program-footer strong {
+            color: var(--blue);
+        }
+
+        /* PRICE */
+
+        .price-layout {
+            display: grid;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .price-description h2 {
+            margin-bottom: 18px;
+        }
+
+        .price-description > p {
+            color: var(--ink-soft);
+        }
+
+        .price-features {
+            display: grid;
+            gap: 15px;
+            margin: 26px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-check {
+            display: grid;
+            width: 29px;
+            height: 29px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 9px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        .price-features strong {
+            display: block;
+            line-height: 1.45;
+        }
+
+        .price-features small {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .price-card {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            border: 1px solid #d5e1ff;
+            border-radius: 26px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .price-card::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 6px;
+            background: var(--orange);
+            content: "";
+        }
+
+        .price-badge {
+            display: inline-block;
+            margin: 8px 0 18px;
+            padding: 7px 12px;
+            border-radius: 9px;
+            background: var(--orange-soft);
+            color: #7c2d12;
+            font-size: 0.84rem;
+            font-weight: 800;
+        }
+
+        .price-old {
+            margin-bottom: 4px;
+            color: var(--muted);
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
+
+        .price-current {
+            margin-bottom: 6px;
+            color: var(--orange-dark);
+            font-size: clamp(2.8rem, 7vw, 3.8rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.15;
+        }
+
+        .price-caption {
+            margin-bottom: 24px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .price-includes {
+            display: grid;
+            gap: 12px;
+            margin: 0 0 25px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .price-includes li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.96rem;
+        }
+
+        .price-includes li::before {
+            color: var(--green);
+            content: "✓";
+            font-weight: 900;
+        }
+
+        .price-guarantee {
+            margin: 17px 0 0;
+            color: var(--muted);
+            font-size: 0.87rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* HANDOUT */
+
+        .handout-grid {
+            display: grid;
+            align-items: center;
+            gap: 42px;
+        }
+
+        .handout-copy > p {
+            color: var(--ink-soft);
+        }
+
+        .handout-list {
+            display: grid;
+            gap: 14px;
+            margin: 25px 0 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .handout-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .handout-list .about-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            margin: 0;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        .handout-list strong {
+            display: block;
+            line-height: 1.45;
+        }
+
+        .handout-list small {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .handout-preview-wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 18px;
+            align-items: center;
+        }
+
+        .mini-paper {
+            position: relative;
+            overflow: hidden;
+            min-height: 370px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: var(--white);
+            box-shadow: 0 16px 45px rgba(15, 23, 42, 0.09);
+            transform: rotate(-1.2deg);
+        }
+
+        .mini-paper::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 7px;
+            background: var(--blue);
+            content: "";
+        }
+
+        .mini-paper-label {
+            margin: 3px 0 10px;
+            color: var(--blue);
+            font-size: 0.68rem;
+            font-weight: 850;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .mini-paper h3 {
+            margin-bottom: 8px;
+            font-size: 1.28rem;
+        }
+
+        .mini-paper-intro {
+            margin-bottom: 18px;
+            color: var(--ink-soft);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .mini-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 13px;
+        }
+
+        .mini-step-num {
+            display: grid;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 7px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.7rem;
+            font-weight: 900;
+        }
+
+        .mini-step div:last-child {
+            flex: 1;
+        }
+
+        .mini-step strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+
+        .mini-line {
+            width: 100%;
+            height: 4px;
+            margin-top: 4px;
+            border-radius: 3px;
+            background: #e9eef7;
+        }
+
+        .mini-line--short {
+            width: 70%;
+        }
+
+        .mini-shortcuts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 15px;
+        }
+
+        .mini-shortcuts span {
+            padding: 6px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.68rem;
+            text-align: center;
+        }
+
+        .qr-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 23px 15px;
+            border: 1px solid var(--border);
+            border-radius: 19px;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .qr-frame {
+            display: grid;
+            width: 174px;
+            aspect-ratio: 1;
+            align-items: center;
+            justify-items: center;
+            overflow: hidden;
+            padding: 9px;
+            border: 1px dashed #94a3b8;
+            border-radius: 12px;
+            background:
+                repeating-conic-gradient(#e7edf8 0% 25%, #ffffff 0% 50%)
+                50% / 16px 16px;
+        }
+
+        .qr-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--white);
+        }
+
+        .qr-frame img[hidden] {
+            display: none;
+        }
+
+        .qr-placeholder-text {
+            display: none;
+            max-width: 140px;
+            color: var(--ink);
+            font-size: 0.83rem;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .qr-frame.is-empty .qr-placeholder-text {
+            display: block;
+        }
+
+        .qr-card h3 {
+            margin: 16px 0 6px;
+            font-size: 1.05rem;
+        }
+
+        .qr-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        /* AUTHOR */
+
+        .author-grid {
+            display: grid;
+            align-items: center;
+            gap: 38px;
+            max-width: 960px;
+            margin-inline: auto;
+        }
+
+        .author-photo-frame {
+            position: relative;
+            width: min(100%, 350px);
+            margin-inline: auto;
+        }
+
+        .author-photo-frame::before {
+            position: absolute;
+            z-index: 0;
+            inset: 17px -14px -14px 17px;
+            border-radius: 24px;
+            background: var(--blue-soft);
+            content: "";
+        }
+
+        .author-photo {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 24px;
+            background: var(--blue-soft);
+            object-fit: cover;
+        }
+
+        .author-copy h2 {
+            margin-bottom: 20px;
+        }
+
+        .author-copy > p {
+            color: var(--ink-soft);
+        }
+
+        .author-points {
+            display: grid;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .author-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 650;
+        }
+
+        .author-point-icon {
+            display: grid;
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 9px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        /* FAQ */
+
+        .faq-list {
+            max-width: 820px;
+            margin-inline: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item summary {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 20px 0;
+            cursor: pointer;
+            font-weight: 750;
+            line-height: 1.45;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-toggle {
+            display: grid;
+            width: 35px;
+            height: 35px;
+            flex-shrink: 0;
+            place-items: center;
+            border-radius: 11px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 1.35rem;
+            transition: transform 180ms ease;
+        }
+
+        .faq-item[open] .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-width: 740px;
+            padding: 0 45px 22px 0;
+            color: var(--ink-soft);
+            font-size: 1rem;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* BOTTOM CTA */
+
+        .final-cta {
+            padding-block: 34px 80px;
+        }
+
+        .final-cta-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            padding: 34px;
+            border-radius: 25px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.14), transparent 38%),
+                var(--blue);
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            margin-bottom: 10px;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        .final-cta p {
+            margin-bottom: 0;
+            color: #e7eeff;
+        }
+
+        .final-cta .button {
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            border-top: 1px solid var(--border);
+            background: #f8faff;
+        }
+
+        .footer-main {
+            display: grid;
+            gap: 25px;
+            padding-block: 38px;
+        }
+
+        .footer-description {
+            max-width: 410px;
+            margin-top: 13px;
+            margin-bottom: 0;
+            color: var(--ink-soft);
+            font-size: 0.93rem;
+        }
+
+        .footer-title {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-weight: 850;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 9px;
+        }
+
+        .footer-links a {
+            width: fit-content;
+            color: var(--ink-soft);
+            font-size: 0.93rem;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--blue);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px 20px;
+            padding-block: 19px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* RESPONSIVE */
+
+        @media (min-width: 640px) {
+            .about-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .handout-preview-wrap {
+                grid-template-columns: minmax(0, 1fr) 190px;
+            }
+
+            .qr-card {
+                align-self: center;
+            }
+
+            .footer-main {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1.08fr 0.92fr;
+            }
+
+            .about-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .about-bottom {
+                grid-template-columns: auto 1fr auto;
+                padding: 32px 35px;
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .price-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 75px;
+            }
+
+            .price-card {
+                padding: 38px;
+            }
+
+            .handout-grid {
+                grid-template-columns: 0.9fr 1.1fr;
+            }
+
+            .author-grid {
+                grid-template-columns: 330px 1fr;
+                gap: 65px;
+            }
+
+            .final-cta-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+                padding: 44px 48px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .section {
+                padding-block: 100px;
+            }
+
+            .hero {
+                padding-block: 92px 100px;
+            }
+
+            .program-grid {
+                gap: 18px;
+            }
+
+            .lesson-card summary {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .header-inner {
+                min-height: 70px;
+                flex-wrap: wrap;
+                gap: 8px 14px;
+                padding-block: 10px;
+            }
+
+            .main-nav {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                gap: 17px;
+                overflow-x: auto;
+                padding: 4px 0 7px;
+                scrollbar-width: thin;
+            }
+
+            .main-nav a {
+                flex-shrink: 0;
+            }
+
+            .main-nav .nav-cta {
+                padding: 8px 12px;
+            }
+
+            .hero {
+                padding-block: 52px 65px;
+            }
+
+            .hero-visual {
+                max-width: 480px;
+            }
+
+            .section {
+                padding-block: 65px;
+            }
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+            .floating-card {
+                right: 6px;
+                bottom: 12px;
+            }
+
+            .about-bottom {
+                padding: 24px;
+            }
+
+            .lesson-content {
+                padding-left: 22px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            h1 {
+                font-size: 2.15rem;
+            }
+
+            .brand {
+                font-size: 0.85rem;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .hero-benefits {
+                display: grid;
+                gap: 10px;
+            }
+
+            .floating-card {
+                right: 0;
+                max-width: 225px;
+                padding: 11px;
+            }
+
+            .lesson-card summary {
+                gap: 10px;
+                padding: 14px;
+            }
+
+            .lesson-number {
+                width: 38px;
+                height: 38px;
+            }
+
+            .lesson-title {
+                font-size: 0.94rem;
+            }
+
+            .lesson-chevron {
+                width: 27px;
+                height: 27px;
+            }
+
+            .about-card,
+            .price-card {
+                padding: 23px;
+            }
+
+            .mini-paper {
+                padding: 20px;
+            }
+
+            .final-cta-inner {
+                padding: 25px;
+            }
+
+            .final-cta .button {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+
+    <!--
+        Структурированные данные Course и Offer.
+        Стоимость синхронизируется с data-course-price в теге body с помощью JS.
+    -->
+    <script type="application/ld+json" id="course-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Основы работы с ПК и Windows",
+        "description": "Онлайн-курс для начинающих пользователей компьютера. 12 понятных уроков по Windows, файлам, интернету и безопасности.",
+        "inLanguage": "ru-RU",
+        "educationalLevel": "Beginner",
+        "courseMode": "Online",
+        "provider": {
+            "@type": "Organization",
+            "name": "Основы ПК",
+            "description": "Образовательный проект по компьютерной грамотности"
+        },
+        "offers": {
+            "@type": "Offer",
+            "name": "Доступ к курсу",
+            "price": "1990",
+            "priceCurrency": "RUB",
+            "availability": "https://schema.org/InStock",
+            "url": "#pricing"
+        }
+    }
+    </script>
+</head>
+
+<!-- ПОМЕНЯЙ ЦЕНУ ТОЛЬКО ЗДЕСЬ: data-course-price="1990" -->
+<body data-course-price="1990">
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Основы ПК — на главную">
+            <span class="brand-icon" aria-hidden="true">ПК</span>
+            <span>
+                Основы ПК
+                <small>Компьютер — это понятно</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+            <a href="#about">О курсе</a>
+            <a href="#program">Программа</a>
+            <a href="#handout">Памятка</a>
+            <a href="#faq">Вопросы</a>
+            <a class="nav-cta" href="#pricing">Стоимость курса</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- 1. HERO -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <p class="eyebrow">Компьютерная грамотность с нуля</p>
+
+                <h1>
+                    Компьютер станет
+                    <span class="text-highlight">понятным.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Освойте компьютер и Windows шаг за шагом —
+                    <strong>без сложных терминов, спешки и страха что-то сломать.</strong>
+                    Объясняем простым языком и показываем, что делать на практике.
+                </p>
+
+                <div class="hero-price">
+                    <span class="hero-price-current" data-price-display>1 990 ₽</span>
+                    <span class="hero-price-old">4 990 ₽</span>
+                    <span class="hero-price-label">Полный доступ ко всем 12 урокам курса</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="button button--primary" href="#pricing">
+                        Начать обучение
+                        <span aria-hidden="true">→</span>
+                    </a>
+                    <a class="button button--outline" href="#program">
+                        Посмотреть программу
+                    </a>
+                </div>
+
+                <p class="hero-note">
+                    <span aria-hidden="true">✓</span>
+                    <span>Подойдёт для первого знакомства с компьютером и для тех, кто хочет закрепить основы.</span>
+                </p>
+
+                <ul class="hero-benefits" aria-label="Преимущества курса">
+                    <li>12 последовательных уроков</li>
+                    <li>Практические примеры</li>
+                    <li>Памятки для повторения</li>
+                </ul>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-frame">
+                    <!-- Замените URL на собственную фотографию занятий или рабочего места -->
+                    <img
+                        src="https://placehold.co/880x660/EAF0FF/1A56DB?text=Фото+обучения+или+рабочего+места"
+                        alt="Иллюстрация обучения работе на компьютере — замените на собственное изображение"
+                        width="880"
+                        height="660"
+                        fetchpriority="high"
+                    >
+                </div>
+
+                <div class="floating-card">
+                    <span class="floating-card-icon" aria-hidden="true">✓</span>
+                    <span>
+                        <strong>Без лишней сложности</strong>
+                        <small>Понятные объяснения и пошаговые действия</small>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. О КУРСЕ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">О курсе</p>
+                <h2>Компьютер для <span class="text-highlight">повседневной жизни</span></h2>
+                <p>
+                    Разберёмся в самых нужных вещах, чтобы компьютер помогал
+                    в жизни, а не вызывал лишние вопросы.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <article class="about-card">
+                    <div class="about-icon" aria-hidden="true">👋</div>
+                    <h3>Для тех, кто начинает с нуля</h3>
+                    <p>
+                        Если вы только осваиваете компьютер, редко им пользуетесь
+                        или хотите наконец разобраться в Windows, курс поможет
+                        спокойно изучить основы.
+                    </p>
+                </article>
+
+                <article class="about-card">
+                    <div class="about-icon" aria-hidden="true">🧭</div>
+                    <h3>Решаем повседневные задачи</h3>
+                    <p>
+                        Учимся находить документы, создавать папки, устанавливать
+                        программы, выходить в интернет, пользоваться почтой
+                        и внимательнее относиться к безопасности.
+                    </p>
+                </article>
+
+                <article class="about-card">
+                    <div class="about-icon" aria-hidden="true">📚</div>
+                    <h3>Учитесь в своём темпе</h3>
+                    <p>
+                        Короткие тематические уроки, понятные примеры
+                        и отдельная памятка с основными действиями.
+                        Можно возвращаться к материалам и повторять шаги.
+                    </p>
+                </article>
+            </div>
+
+            <div class="about-bottom">
+                <div class="about-icon" aria-hidden="true">💡</div>
+                <div>
+                    <h3>Не нужно знать всё заранее</h3>
+                    <p>
+                        Достаточно иметь доступ к компьютеру с Windows и желание
+                        учиться. Начнём с основ и постепенно перейдём к более
+                        самостоятельной работе.
+                    </p>
+                </div>
+                <a class="button button--blue" href="#program">Изучить уроки →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ПРОГРАММА -->
+    <section class="section section--soft" id="program">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Программа обучения</p>
+                <h2>12 уроков — от первого включения до уверенной работы</h2>
+                <p>
+                    Нажмите на интересующий урок, чтобы узнать, что вы изучите.
+                    Темы расположены последовательно, от простого к более сложному.
+                </p>
+            </div>
+
+            <div class="program-grid">
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">01</span>
+                        <span class="lesson-title">Устройство ПК, включение и выключение</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Знакомимся с компьютером, монитором, системным блоком или ноутбуком. Разбираемся, зачем нужны основные разъёмы и кнопки.</p>
+                        <p class="lesson-result">Результат: умеете правильно включать компьютер и завершать работу.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">02</span>
+                        <span class="lesson-title">Рабочий стол, панель задач, меню Пуск</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Изучаем рабочий стол, значки, меню «Пуск», окна программ и панель задач. Учимся переключаться между окнами.</p>
+                        <p class="lesson-result">Результат: ориентируетесь в интерфейсе Windows.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">03</span>
+                        <span class="lesson-title">Файлы и папки в Windows</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Разбираемся, чем файл отличается от папки, где искать документы и загрузки, как создавать папки и переименовывать файлы.</p>
+                        <p class="lesson-result">Результат: умеете сохранять документы и находить их без долгих поисков.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">04</span>
+                        <span class="lesson-title">Мышь, клавиатура и горячие клавиши</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Учимся выделять текст, работать с окнами, использовать правую кнопку мыши и сочетания клавиш Ctrl+C, Ctrl+V, Ctrl+Z.</p>
+                        <p class="lesson-result">Результат: выполняете привычные действия проще и быстрее.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">05</span>
+                        <span class="lesson-title">Установка и удаление программ</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Разбираемся, откуда безопасно скачивать приложения, как запускать установщик и как удалять ненужные программы.</p>
+                        <p class="lesson-result">Результат: понимаете основные шаги установки и удаления ПО.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">06</span>
+                        <span class="lesson-title">Параметры и персонализация Windows</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Находим настройки звука, экрана, языка, даты и времени. Меняем размер текста и другие удобные параметры.</p>
+                        <p class="lesson-result">Результат: можете настроить компьютер под свои привычки.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">07</span>
+                        <span class="lesson-title">Интернет и браузер</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Открываем сайты, пользуемся поиском, создаём закладки, работаем со вкладками и разбираемся с загрузкой файлов.</p>
+                        <p class="lesson-result">Результат: можете самостоятельно искать полезную информацию в интернете.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">08</span>
+                        <span class="lesson-title">Электронная почта и аккаунты</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Изучаем устройство электронного адреса, отправку писем и вложений, вход в аккаунт и восстановление доступа.</p>
+                        <p class="lesson-result">Результат: понимаете, как переписываться по электронной почте.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">09</span>
+                        <span class="lesson-title">Безопасность: пароли, антивирус, обновления</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Обсуждаем надёжные пароли, подозрительные сообщения, фальшивые сайты, антивирусную защиту и обновления системы.</p>
+                        <p class="lesson-result">Результат: знаете основные правила защиты своих данных.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">10</span>
+                        <span class="lesson-title">Флешки, диски и облачное хранение</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Подключаем флеш-накопители, копируем документы, безопасно извлекаем устройства и знакомимся с облачным хранением.</p>
+                        <p class="lesson-result">Результат: умеете переносить и хранить файлы.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">11</span>
+                        <span class="lesson-title">Принтер, сканер и другие устройства</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Разбираемся с подключением периферийных устройств, выбором принтера и основными шагами печати и сканирования.</p>
+                        <p class="lesson-result">Результат: знаете, с чего начать работу с дополнительными устройствами.</p>
+                    </div>
+                </details>
+
+                <details class="lesson-card">
+                    <summary>
+                        <span class="lesson-number">12</span>
+                        <span class="lesson-title">Резервное копирование и решение проблем</span>
+                        <span class="lesson-chevron" aria-hidden="true">⌄</span>
+                    </summary>
+                    <div class="lesson-content">
+                        <p>Учимся беречь важные документы, создавать копии файлов и действовать при зависании программы или других обычных неполадках.</p>
+                        <p class="lesson-result">Результат: понимаете, как сохранить данные и с чего начать поиск решения.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="program-footer">
+                <p><strong>Главное — практика.</strong> Можно повторять каждый шаг прямо на своём компьютере.</p>
+                <a class="button button--blue" href="#pricing">Перейти к покупке →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ЦЕНА -->
+    <section class="section" id="pricing">
+        <div class="container price-layout">
+            <div class="price-description">
+                <p class="eyebrow">Стоимость обучения</p>
+                <h2>Всё необходимое для уверенного старта</h2>
+                <p>
+                    Вы получаете структурированную программу, которую можно
+                    проходить последовательно и использовать для повторения.
+                </p>
+
+                <ul class="price-features">
+                    <li>
+                        <span class="feature-check" aria-hidden="true">✓</span>
+                        <span>
+                            <strong>12 тематических уроков</strong>
+                            <small>От базовых действий до хранения документов и безопасности.</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="feature-check" aria-hidden="true">✓</span>
+                        <span>
+                            <strong>Практические инструкции</strong>
+                            <small>Понятные действия, которые можно выполнять на своём ПК.</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="feature-check" aria-hidden="true">✓</span>
+                        <span>
+                            <strong>Памятка по файлам и папкам</strong>
+                            <small>Краткая шпаргалка для печати и повторения.</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="feature-check" aria-hidden="true">✓</span>
+                        <span>
+                            <strong>Удобная последовательность тем</strong>
+                            <small>Можно учиться постепенно, не пытаясь разобраться во всём сразу.</small>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <span class="price-badge">Полная программа курса</span>
+
+                <p class="price-old">4 990 ₽</p>
+                <p class="price-current" data-price-display>1 990 ₽</p>
+                <p class="price-caption">Стоимость курса, а не одного урока</p>
+
+                <ul class="price-includes">
+                    <li>Все 12 уроков программы</li>
+                    <li>Практические примеры</li>
+                    <li>Памятка для печати</li>
+                    <li>Материалы для повторения</li>
+                </ul>
+
+                <!-- Замените # на реальную ссылку платёжной системы -->
+                <a class="button button--primary button--full" href="#">
+                    Перейти к оплате <span aria-hidden="true">→</span>
+                </a>
+
+                <p class="price-guarantee">
+                    Кнопка пока демонстрационная. Настройте платёжную ссылку
+                    и условия предоставления доступа перед публикацией сайта.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ПАМЯТКА -->
+    <section class="section section--soft" id="handout">
+        <div class="container handout-grid">
+            <div class="handout-copy">
+                <p class="eyebrow">Полезный материал</p>
+                <h2>Памятка, которая <span class="text-highlight">всегда под рукой</span></h2>
+                <p>
+                    После урока о файлах и папках пригодится краткая инструкция:
+                    можно открыть её на компьютере или распечатать на обычном листе A4.
+                </p>
+
+                <ul class="handout-list">
+                    <li>
+                        <span class="about-icon" aria-hidden="true">📁</span>
+                        <span>
+                            <strong>Как создавать папки</strong>
+                            <small>Сохраняйте документы в понятном и удобном порядке.</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="about-icon" aria-hidden="true">⌨️</span>
+                        <span>
+                            <strong>Полезные сочетания клавиш</strong>
+                            <small>Копирование, вставка, переименование и удаление.</small>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="about-icon" aria-hidden="true">🔎</span>
+                        <span>
+                            <strong>Поиск и восстановление файлов</strong>
+                            <small>Подсказки на случай, если документ не удаётся найти.</small>
+                        </span>
+                    </li>
+                </ul>
+
+                <a class="button button--blue" href="pamyatka.html" target="_blank" rel="noopener">
+                    Открыть памятку для печати ↗
+                </a>
+
+                <p class="small-note" style="margin-top: 12px;">
+                    Откройте страницу и нажмите Ctrl+P, чтобы отправить памятку на печать.
+                </p>
+            </div>
+
+            <div class="handout-preview-wrap">
+                <div class="mini-paper" aria-label="Предварительный просмотр памятки по работе с файлами и папками">
+                    <p class="mini-paper-label">Урок 03 · Краткая инструкция</p>
+                    <h3>Файлы и папки в Windows</h3>
+                    <p class="mini-paper-intro">
+                        Шпаргалка: как сохранять документы и быстро находить их на компьютере.
+                    </p>
+
+                    <div class="mini-step">
+                        <span class="mini-step-num">1</span>
+                        <div>
+                            <strong>Откройте Проводник</strong>
+                            <div class="mini-line"></div>
+                            <div class="mini-line mini-line--short"></div>
+                        </div>
+                    </div>
+
+                    <div class="mini-step">
+                        <span class="mini-step-num">2</span>
+                        <div>
+                            <strong>Создайте новую папку</strong>
+                            <div class="mini-line"></div>
+                            <div class="mini-line mini-line--short"></div>
+                        </div>
+                    </div>
+
+                    <div class="mini-step">
+                        <span class="mini-step-num">3</span>
+                        <div>
+                            <strong>Скопируйте и вставьте файл</strong>
+                            <div class="mini-line"></div>
+                            <div class="mini-line mini-line--short"></div>
+                        </div>
+                    </div>
+
+                    <div class="mini-step">
+                        <span class="mini-step-num">4</span>
+                        <div>
+                            <strong>Найдите документ через поиск</strong>
+                            <div class="mini-line"></div>
+                            <div class="mini-line mini-line--short"></div>
+                        </div>
+                    </div>
+
+                    <div class="mini-shortcuts" aria-hidden="true">
+                        <span>Ctrl + C — копировать</span>
+                        <span>Ctrl + V — вставить</span>
+                        <span>F2 — переименовать</span>
+                        <span>Ctrl + Z — отменить</span>
+                    </div>
+                </div>
+
+                <div class="qr-card">
+                    <div class="qr-frame" id="qr-frame">
+                        <img
+                            src="qr.png"
+                            id="qr-image"
+                            alt="QR-код для перехода к материалам курса"
+                            width="156"
+                            height="156"
+                            loading="lazy"
+                        >
+                        <span class="qr-placeholder-text" id="qr-fallback">
+                            Добавьте файл qr.png
+                        </span>
+                    </div>
+                    <h3>Материалы курса</h3>
+                    <p>Здесь будет QR-код для быстрого перехода к дополнительным материалам.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ОБ АВТОРЕ -->
+    <section class="section" id="author">
+        <div class="container author-grid">
+            <div class="author-photo-frame">
+                <!-- Замените изображение на реальную фотографию автора курса -->
+                <img
+                    class="author-photo"
+                    src="https://placehold.co/560x700/F1F5F9/334155?text=Фото+автора"
+                    alt="Фотография автора курса — замените изображение на своё"
+                    width="560"
+                    height="700"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="author-copy">
+                <p class="eyebrow">Об авторе</p>
+                <h2>Объясняю сложное <span class="text-highlight">простыми словами</span></h2>
+
+                <!-- Замените этот текст реальной биографией автора -->
+                <p>
+                    Меня зовут <strong>[Имя автора]</strong>. Я подготовил этот курс
+                    для тех, кто хочет лучше разобраться в компьютере и чувствовать
+                    себя увереннее при выполнении повседневных задач.
+                </p>
+
+                <p>
+                    В обучении важно не торопиться и не бояться задавать вопросы.
+                    Поэтому материал выстроен последовательно: сначала основы,
+                    затем практические инструменты и полезные привычки.
+                </p>
+
+                <div class="author-points">
+                    <div class="author-point">
+                        <span class="author-point-icon" aria-hidden="true">✓</span>
+                        <span>Понятный язык без перегруженных объяснений</span>
+                    </div>
+                    <div class="author-point">
+                        <span class="author-point-icon" aria-hidden="true">✓</span>
+                        <span>Примеры из обычной работы за компьютером</span>
+                    </div>
+                    <div class="author-point">
+                        <span class="author-point-icon" aria-hidden="true">✓</span>
+                        <span>Внимание к самостоятельной и безопасной работе</span>
+                    </div>
+                </div>
+
+                <p class="small-note" style="margin-top: 22px;">
+                    Перед публикацией замените имя и биографию на реальные сведения.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section section--soft" id="faq">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Частые вопросы</p>
+                <h2>Давайте разберёмся</h2>
+                <p>Ответы на вопросы, которые могут возникнуть перед началом обучения.</p>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>
+                        Подойдёт ли курс, если я почти не умею пользоваться компьютером?
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            Да. Курс начинается с устройства компьютера, включения
+                            и знакомства с Windows. Предварительные технические знания
+                            не нужны. Желательно иметь компьютер, на котором можно
+                            выполнять описанные действия.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        На какой версии Windows можно заниматься?
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            Курс ориентирован на Windows 10 и Windows 11. Внешний вид
+                            отдельных окон и расположение некоторых настроек могут
+                            отличаться в зависимости от версии системы.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        Сколько времени нужно на обучение?
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            Вы можете заниматься в собственном темпе: проходить
+                            по одному уроку за раз, делать перерывы и возвращаться
+                            к пройденным темам. Для закрепления навыков полезно
+                            повторять действия на своём компьютере.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        Что делать, если у меня не получилось повторить действие?
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            Остановитесь и спокойно проверьте шаги ещё раз. Сравните
+                            название окна и выбранные команды с инструкцией. Не удаляйте
+                            неизвестные файлы и не подтверждайте действия, смысл которых
+                            вам непонятен.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        Как получить доступ после оплаты?
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            На этом демонстрационном сайте порядок получения доступа
+                            пока не настроен. Перед публикацией добавьте работающую
+                            платёжную ссылку и опишите реальный способ передачи
+                            материалов покупателю.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дополнительный CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-inner">
+                <div>
+                    <h2>Начните знакомство с компьютером</h2>
+                    <p>
+                        Последовательные уроки помогут разобраться в основах
+                        и увереннее выполнять повседневные задачи.
+                    </p>
+                </div>
+
+                <a class="button button--primary" href="#pricing">
+                    Посмотреть стоимость →
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- 8. ФУТЕР -->
+<footer class="site-footer">
+    <div class="container footer-main">
+        <div>
+            <a class="brand" href="#home">
+                <span class="brand-icon" aria-hidden="true">ПК</span>
+                <span>
+                    Основы ПК
+                    <small>Компьютер — это понятно</small>
+                </span>
+            </a>
+            <p class="footer-description">
+                Учебный курс для начинающих пользователей компьютера.
+                Понятные объяснения, полезные навыки и движение шаг за шагом.
+            </p>
+        </div>
+
+        <div>
+            <h3 class="footer-title">Разделы сайта</h3>
+            <nav class="footer-links" aria-label="Навигация в подвале">
+                <a href="#about">О курсе</a>
+                <a href="#program">Программа обучения</a>
+                <a href="#pricing">Стоимость</a>
+                <a href="#faq">Частые вопросы</a>
+                <a href="pamyatka.html">Памятка для печати</a>
+            </nav>
+        </div>
+
+        <div>
+            <h3 class="footer-title">Контакты</h3>
+            <div class="footer-links">
+                <!-- Замените адрес на реальный адрес автора или службы поддержки -->
+                <a href="mailto:hello@example.ru">hello@example.ru</a>
+                <!-- Добавьте реальные ссылки при наличии -->
+                <span class="small-note">Электронная почта для связи</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p>© <span id="current-year">2026</span> Основы ПК. Все права защищены.</p>
+        <p>Учебные материалы для начинающих пользователей.</p>
+    </div>
+</footer>
+
+<script>
+    (() => {
+        "use strict";
+
+        // Единый источник цены — data-course-price в теге <body>.
+        // После изменения атрибута обновляются цена на странице и Schema.org Offer.
+        const rawPrice = Number(document.body.dataset.coursePrice);
+
+        if (Number.isFinite(rawPrice) && rawPrice >= 0) {
+            const formattedPrice =
+                new Intl.NumberFormat("ru-RU").format(rawPrice) + " ₽";
+
+            document.querySelectorAll("[data-price-display]").forEach((element) => {
+                element.textContent = formattedPrice;
+            });
+
+            const schemaElement = document.getElementById("course-schema");
+
+            if (schemaElement) {
+                try {
+                    const schema = JSON.parse(schemaElement.textContent);
+
+                    if (schema.offers) {
+                        schema.offers.price = String(rawPrice);
+                    }
+
+                    schemaElement.textContent = JSON.stringify(schema);
+                } catch (error) {
+                    // Страница продолжит работать, даже если структурированные данные повреждены.
+                    console.warn("Не удалось обновить Schema.org:", error);
+                }
+            }
+        }
+
+        // Подставляем текущий год в копирайт.
+        const yearElement = document.getElementById("current-year");
+
+        if (yearElement) {
+            yearElement.textContent = String(new Date().getFullYear());
+        }
+
+        // Если qr.png пока отсутствует, показываем аккуратную заглушку.
+        // Когда файл появится рядом с index.html, изображение загрузится автоматически.
+        const qrImage = document.getElementById("qr-image");
+        const qrFrame = document.getElementById("qr-frame");
+
+        if (qrImage && qrFrame) {
+            qrImage.addEventListener("error", () => {
+                qrImage.hidden = true;
+                qrFrame.classList.add("is-empty");
+            }, { once: true });
+        }
+    })();
+</script>
+
+</body>
+</html>
