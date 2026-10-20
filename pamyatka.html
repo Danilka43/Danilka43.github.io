@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Памятка к уроку 3 «Файлы и папки в Windows». Курс «Основы работы с ПК и Windows».">
+  <meta name="author" content="ПК-Академия">
+  <title>Памятка. Урок 3: Файлы и папки в Windows — ПК-Академия</title>
+  <style>
+    /* ============================================================
+       ПК-Академия — Памятка. Урок 3: Файлы и папки в Windows
+       Печатная версия (A4). Черно-белая + цветная печать.
+       ============================================================ */
+
+    /* --- Базовые CSS-переменные --- */
+    :root {
+      /* Цветные акценты (для цветной печати) */
+      --brand-blue: #1a2a6c;
+      --brand-blue-light: #e8ecf7;
+      --brand-blue-border: #c3cde8;
+
+      /* Нейтральная палитра (для чёрно-белой печати) */
+      --text-main: #1a1a1a;
+      --text-secondary: #444444;
+      --text-muted: #666666;
+
+      /* Фон и линии */
+      --bg-page: #ffffff;
+      --bg-block: #ffffff;
+      --line-main: #9a9a9a;
+      --line-light: #cccccc;
+
+      /* Типографика */
+      --font-main: "Segoe UI", "Arial", "Helvetica Neue", "Tahoma", sans-serif;
+
+      /* Геометрия */
+      --radius: 6px;
+      --pad-block: 10px 14px;
+    }
+
+    /* --- Сброс и базовая настройка --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: var(--font-main);
+      font-size: 10pt;
+      line-height: 1.4;
+      color: var(--text-main);
+      background: var(--bg-page);
+    }
+
+    /* --- Страница A4 --- */
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+
+    /* --- Шапка памятки --- */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 6px;
+      border-bottom: 3px solid var(--brand-blue);
+      margin-bottom: 10px;
+    }
+
+    .header-logo {
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--brand-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      background: var(--bg-page);
+    }
+
+    .header-title {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+    }
+
+    .header-subtitle {
+      font-size: 9pt;
+      color: var(--text-secondary);
+    }
+
+    /* --- Заголовок памятки --- */
+    .hero {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 16pt;
+      font-weight: 800;
+      color: var(--brand-blue);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    .hero .lesson-theme {
+      font-size: 11pt;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* --- Блоки-разделы --- */
+    .lesson {
+      counter-reset: block;
+    }
+
+    .block {
+      background: var(--bg-block);
+      border: 1px solid var(--line-light);
+      border-left: 4px solid var(--brand-blue);
+      border-radius: var(--radius);
+      padding: 5px 10px;
+      margin-bottom: 3px;
+      break-inside: avoid;
+    }
+
+    .block h2 {
+      font-size: 11.5pt;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .block h2 .icon {
+      font-size: 14pt;
+      color: var(--brand-blue);
+    }
+
+    .block h2 .number {
+      flex: 0 0 auto;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      color: #ffffff;
+      font-size: 10.5pt;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    .block p {
+      margin-bottom: 2px;
+      color: var(--text-main);
+    }
+
+    .block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--text-secondary);
+    }
+
+    /* --- Списки --- */
+    ul {
+      list-style: none;
+      margin: 2px 0 0 0;
+    }
+
+    ul li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 1px;
+    }
+
+    ul li::before {
+      content: "▪";
+      position: absolute;
+      left: 2px;
+      top: 0;
+      color: var(--brand-blue);
+      font-size: 10pt;
+    }
+
+    ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Таблицы горячих клавиш --- */
+    .table-keys {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 10pt;
+    }
+
+    .table-keys th,
+    .table-keys td {
+      border: 1px solid var(--line-light);
+      padding: 2px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table-keys th {
+      background: var(--brand-blue-light);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .table-keys td:first-child {
+      white-space: nowrap;
+      font-weight: 700;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 10pt;
+      color: var(--brand-blue);
+    }
+
+    .table-keys tr:nth-child(even) td {
+      background: #f6f6f6;
+    }
+
+    .table-keys tr:nth-child(even) td:first-child {
+      background: #f6f6f6;
+    }
+
+    /* --- Короткие шаги: путь действия --- */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+      font-size: 10.5pt;
+    }
+
+    .steps .step {
+      border: 1px solid var(--line-main);
+      border-radius: 999px;
+      padding: 1px 10px;
+      background: var(--bg-block);
+    }
+
+    .steps .arrow {
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* --- Курсивные примеры --- */
+    .examples {
+      font-size: 10.5pt;
+      color: var(--text-secondary);
+    }
+
+    .examples code {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 10pt;
+      background: #f0f0f0;
+      border: 1px solid var(--line-light);
+      border-radius: 4px;
+      padding: 0 4px;
+      color: var(--text-main);
+    }
+
+    /* --- Подвал --- */
+    .footer {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid var(--line-light);
+      text-align: center;
+      font-size: 8.5pt;
+      color: var(--text-muted);
+    }
+
+    .footer .brand {
+      display: block;
+      font-weight: 700;
+      color: var(--brand-blue);
+      font-size: 9pt;
+      margin-bottom: 2px;
+    }
+
+    /* --- Кнопки на экране (не печатаются) --- */
+    .screen-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
+    }
+
+    .screen-actions button,
+    .screen-actions a {
+      font-family: var(--font-main);
+      font-size: 10.5pt;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 2px solid var(--brand-blue);
+      background: var(--brand-blue);
+      color: #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .screen-actions a {
+      background: #ffffff;
+      color: var(--brand-blue);
+    }
+
+    .screen-actions button:hover,
+    .screen-actions button:focus-visible {
+      background: #ffffff;
+      color: var(--brand-blue);
+    }
+
+    .screen-actions a:hover,
+    .screen-actions a:focus-visible {
+      background: var(--brand-blue);
+      color: #ffffff;
+    }
+
+    .screen-actions button:focus-visible,
+    .screen-actions a:focus-visible {
+      outline: 3px solid #f97316;
+      outline-offset: 2px;
+    }
+
+    /* --- Печатная версия --- */
+    @media print {
+      @page {
+        size: A4;
+        margin: 2cm;
+      }
+
+      html,
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      /* Чёрно-белая печать: убираем заливки, оставляем рамки */
+      .header {
+        border-bottom-color: #000000;
+      }
+
+      .header-logo {
+        border-color: #000000;
+        color: #000000;
+      }
+
+      .header-title,
+      .hero h1,
+      .block h2 .icon,
+      .table-keys td:first-child {
+        color: #000000;
+      }
+
+      .block {
+        border: 1px solid #000000;
+        border-left: 4px solid #000000;
+      }
+
+      .block h2 .number {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      ul li::before {
+        color: #000000;
+      }
+
+      .table-keys th {
+        background: #e0e0e0;
+        color: #000000;
+        border-color: #000000;
+      }
+
+      .table-keys td {
+        border-color: #000000;
+      }
+
+      .table-keys tr:nth-child(even) td {
+        background: #ffffff;
+      }
+
+      .footer {
+        border-top-color: #000000;
+      }
+
+      .footer .brand {
+        color: #000000;
+      }
+
+      /* Не даём блокам разрываться между страницами */
+      .block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .header,
+      .hero,
+      .footer {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      /* Экранные кнопки при печати не нужны */
+      .screen-actions {
+        display: none !important;
+      }
+
+      /* Дополнительная защита: ничего не обрезаем по краям */
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================= Кнопки на экране ======================= -->
+  <div class="screen-actions">
+    <button type="button" onclick="window.print()">🖨️ Печать / Сохранить в PDF</button>
+    <a href="index.html">← Вернуться на сайт</a>
+  </div>
+
+  <!-- ======================= Шапка ======================= -->
+  <header class="header">
+    <div class="header-logo" role="img" aria-label="Логотип ПК-Академия">💻</div>
+    <div>
+      <div class="header-title">ПК-Академия</div>
+      <div class="header-subtitle">Курс «Основы работы с ПК и Windows»</div>
+    </div>
+  </header>
+
+  <!-- ======================= Заголовок памятки ======================= -->
+  <div class="hero">
+    <h1>Памятка. Урок 3: Файлы и папки в Windows</h1>
+    <p class="lesson-theme">Печатная памятка к уроку 3 — распечатайте и держите под рукой</p>
+  </div>
+
+  <!-- ======================= Содержание ======================= -->
+  <main class="lesson">
+
+    <!-- 1. Что такое файл -->
+    <section class="block" aria-labelledby="block-1">
+      <h2 id="block-1">
+        <span class="number" aria-hidden="true">1</span>
+        <span class="icon" aria-hidden="true">📄</span>
+        Что такое файл?
+      </h2>
+      <p><strong>Файл</strong> — это информация (текст, фото, видео, музыка), у которой есть <strong>имя</strong> и <strong>значок</strong>.</p>
+      <p class="examples">Примеры: <code>Отчёт.docx</code>, <code>Фото.jpg</code>, <code>Песня.mp3</code></p>
+    </section>
+
+    <!-- 2. Что такое папка -->
+    <section class="block" aria-labelledby="block-2">
+      <h2 id="block-2">
+        <span class="number" aria-hidden="true">2</span>
+        <span class="icon" aria-hidden="true">📁</span>
+        Что такое папка?
+      </h2>
+      <p><strong>Папка</strong> (каталог) — контейнер для файлов и других папок. Помогает наводить порядок на компьютере.</p>
+    </section>
+
+    <!-- 3. Главные папки -->
+    <section class="block" aria-labelledby="block-3">
+      <h2 id="block-3">
+        <span class="number" aria-hidden="true">3</span>
+        <span class="icon" aria-hidden="true">🗂️</span>
+        Главные папки
+      </h2>
+      <ul>
+        <li><strong>«Рабочий стол»</strong> — всё, что на экране</li>
+        <li><strong>«Этот компьютер»</strong> — все диски (C:, D:, флешки)</li>
+        <li><strong>«Документы», «Загрузки», «Изображения»</strong> — системные папки</li>
+      </ul>
+    </section>
+
+    <!-- 4. Как создать папку -->
+    <section class="block" aria-labelledby="block-4">
+      <h2 id="block-4">
+        <span class="number" aria-hidden="true">4</span>
+        <span class="icon" aria-hidden="true">🆕</span>
+        Как создать папку
+      </h2>
+      <p class="steps">
+        <span class="step">ПКМ (правая кнопка мыши)</span>
+        <span class="arrow">→</span>
+        <span class="step">Создать</span>
+        <span class="arrow">→</span>
+        <span class="step">Папку</span>
+        <span class="arrow">→</span>
+        <span class="step">Ввести имя</span>
+        <span class="arrow">→</span>
+        <span class="step">Enter</span>
+      </p>
+    </section>
+
+    <!-- 5. Как скопировать / переместить -->
+    <section class="block" aria-labelledby="block-5">
+      <h2 id="block-5">
+        <span class="number" aria-hidden="true">5</span>
+        <span class="icon" aria-hidden="true">✂️</span>
+        Как скопировать / переместить файл
+      </h2>
+      <ul>
+        <li><strong>Копировать:</strong> <code>Ctrl&nbsp;+&nbsp;C</code> (копировать), <code>Ctrl&nbsp;+&nbsp;V</code> (вставить)</li>
+        <li><strong>Вырезать / переместить:</strong> <code>Ctrl&nbsp;+&nbsp;X</code> (вырезать), <code>Ctrl&nbsp;+&nbsp;V</code> (вставить)</li>
+        <li><strong>Перетаскивание мышью:</strong> зажать левую кнопку и перетащить в нужную папку</li>
+      </ul>
+    </section>
+
+    <!-- 6. Как переименовать -->
+    <section class="block" aria-labelledby="block-6">
+      <h2 id="block-6">
+        <span class="number" aria-hidden="true">6</span>
+        <span class="icon" aria-hidden="true">✏️</span>
+        Как переименовать
+      </h2>
+      <p class="steps">
+        <span class="step">ПКМ</span>
+        <span class="arrow">→</span>
+        <span class="step">Переименовать</span>
+        <span class="arrow">→</span>
+        <span class="step">Ввести новое имя</span>
+        <span class="arrow">→</span>
+        <span class="step">Enter</span>
+      </p>
+      <p class="muted">Или нажать <code>F2</code>.</p>
+    </section>
+
+    <!-- 7. Как удалить -->
+    <section class="block" aria-labelledby="block-7">
+      <h2 id="block-7">
+        <span class="number" aria-hidden="true">7</span>
+        <span class="icon" aria-hidden="true">🗑️</span>
+        Как удалить
+      </h2>
+      <p class="steps">
+        <span class="step">ПКМ</span>
+        <span class="arrow">→</span>
+        <span class="step">Удалить</span>
+        <span class="arrow">→</span>
+        <span class="step">Корзина</span>
+      </p>
+      <p class="muted">Чтобы восстановить — открыть <strong>Корзину</strong> → <strong>ПКМ</strong> → <strong>Восстановить</strong>.</p>
+    </section>
+
+    <!-- 8. Полезные сочетания -->
+    <section class="block" aria-labelledby="block-8">
+      <h2 id="block-8">
+        <span class="number" aria-hidden="true">8</span>
+        <span class="icon" aria-hidden="true">⌨️</span>
+        Полезные сочетания клавиш
+      </h2>
+      <table class="table-keys" aria-label="Сочетания горячих клавиш Windows">
+        <thead>
+          <tr>
+            <th scope="col">Горячие клавиши</th>
+            <th scope="col">Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Win + E</td>
+            <td>Открыть Проводник</td>
+          </tr>
+          <tr>
+            <td>Ctrl + Shift + N</td>
+            <td>Новая папка</td>
+          </tr>
+          <tr>
+            <td>Ctrl + A</td>
+            <td>Выделить всё</td>
+          </tr>
+          <tr>
+            <td>Delete</td>
+            <td>Удалить в корзину</td>
+          </tr>
+          <tr>
+            <td>Shift + Delete</td>
+            <td>Удалить навсегда <span class="muted">(осторожно!)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- ======================= Подвал ======================= -->
+  <footer class="footer">
+    <span class="brand">ПК-Академия — Основы работы с ПК и Windows</span>
+    © 2026 ПК-Академия. Все права защищены.
+  </footer>
+
+</body>
+</html>
